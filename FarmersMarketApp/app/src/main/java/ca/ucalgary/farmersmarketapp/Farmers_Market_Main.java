@@ -13,7 +13,7 @@ public class Farmers_Market_Main extends AppCompatActivity {
         setContentView(R.layout.activity_farmers__market__main);
     }
 
-    public void buttonOnePressed(View view) {
+    public void salesPressed(View view) {
         Intent myIntent = new Intent(view.getContext(), Sales.class);
         startActivityForResult(myIntent, 0);
     }

@@ -2,6 +2,7 @@ package ca.ucalgary.farmersmarketapp;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 /**
@@ -12,7 +13,7 @@ public class Sales extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.people_screen);
+        setContentView(R.layout.sales_screen);
     }
 
 }
