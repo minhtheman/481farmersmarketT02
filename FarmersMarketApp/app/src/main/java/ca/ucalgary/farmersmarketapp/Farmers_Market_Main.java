@@ -18,4 +18,24 @@ public class Farmers_Market_Main extends AppCompatActivity {
         startActivityForResult(myIntent, 0);
     }
 
+    public void peoplePressed(View view) {
+        Intent myIntent = new Intent(view.getContext(), People.class);
+        startActivityForResult(myIntent, 0);
+    }
+
+    public void logsPressed(View view) {
+        Intent myIntent = new Intent(view.getContext(), Logs.class);
+        startActivityForResult(myIntent, 0);
+    }
+
+    public void productsPressed(View view) {
+        Intent myIntent = new Intent(view.getContext(), Products.class);
+        startActivityForResult(myIntent, 0);
+    }
+
+    public void settingsPressed(View view) {
+        Intent myIntent = new Intent(view.getContext(), Settings.class);
+        startActivityForResult(myIntent, 0);
+    }
+
 }

@@ -12,8 +12,9 @@
     android:rowCount="5"
     tools:context="ca.ucalgary.farmersmarketapp.Farmers_Market_Main">
 
+    //placeholder button
     <Button
-        android:layout_width="352dp"
+        android:layout_width="match_parent"
         android:layout_height="87dp"
         android:text="Sales"
         android:layout_column="0"
@@ -23,7 +24,7 @@
 
     //Implimenting roles feature
     <Button
-        android:layout_width="352dp"
+        android:layout_width="match_parent"
         android:layout_height="87dp"
         android:text="People"
         android:layout_column="0"
@@ -31,8 +32,9 @@
         android:onClick="peoplePressed"
         />
 
+    //placeholder button
     <Button
-        android:layout_width="352dp"
+        android:layout_width="match_parent"
         android:layout_height="87dp"
         android:text="Logs"
         android:layout_column="0"
@@ -42,7 +44,7 @@
 
     //Implimenting tempature and inventory
     <Button
-        android:layout_width="352dp"
+        android:layout_width="match_parent"
         android:layout_height="87dp"
         android:text="Products"
         android:layout_column="0"
@@ -50,8 +52,9 @@
         android:onClick="productsPressed"
         />
 
+    //placeholder screen
     <Button
-        android:layout_width="352dp"
+        android:layout_width="match_parent"
         android:layout_height="87dp"
         android:text="Settings"
         android:layout_column="0"
