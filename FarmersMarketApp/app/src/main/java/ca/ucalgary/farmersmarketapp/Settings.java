@@ -8,7 +8,7 @@ import android.view.View;
 /**
  * Created by Whoosp on 2016-11-14.
  */
-public class Sales extends AppCompatActivity {
+public class Settings extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

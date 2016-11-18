@@ -12,48 +12,53 @@
     android:rowCount="5"
     tools:context="ca.ucalgary.farmersmarketapp.Farmers_Market_Main">
 
+    //placeholder button
     <Button
-        android:layout_width="352dp"
+        android:layout_width="match_parent"
         android:layout_height="87dp"
-        android:text="Place Holder"
+        android:text="Sales"
         android:layout_column="0"
         android:layout_row="0"
-        android:onClick="buttonOnePressed"
+        android:onClick="salesPressed"
         />
 
+    //Implimenting roles feature
     <Button
-        android:layout_width="352dp"
+        android:layout_width="match_parent"
         android:layout_height="87dp"
-        android:text="Place Holder 2"
+        android:text="People"
         android:layout_column="0"
         android:layout_row="1"
-        android:onClick="buttonTwoPressed"
+        android:onClick="peoplePressed"
         />
 
+    //placeholder button
     <Button
-        android:layout_width="352dp"
+        android:layout_width="match_parent"
         android:layout_height="87dp"
-        android:text="Place Holder 3"
+        android:text="Logs"
         android:layout_column="0"
         android:layout_row="2"
-        android:onClick="buttonThreePressed"
+        android:onClick="logsPressed"
         />
 
+    //Implimenting tempature and inventory
     <Button
-        android:layout_width="352dp"
+        android:layout_width="match_parent"
         android:layout_height="87dp"
-        android:text="Place Holder 4"
+        android:text="Products"
         android:layout_column="0"
         android:layout_row="3"
-        android:onClick="buttonFourPressed"
+        android:onClick="productsPressed"
         />
 
+    //placeholder screen
     <Button
-        android:layout_width="352dp"
+        android:layout_width="match_parent"
         android:layout_height="87dp"
-        android:text="Place Holder 5"
+        android:text="Settings"
         android:layout_column="0"
         android:layout_row="4"
-        android:onClick="buttonFivePressed"
+        android:onClick="settingsPressed"
         />
 </GridLayout>
