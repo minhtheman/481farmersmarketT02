@@ -10,7 +10,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:columnCount="4"
     android:rowCount="5"
-    tools:context="ca.ucalgary.farmersmarketapp.Farmers_Market_Main">
+    tools:context="ca.ucalgary.farmersmarketapp.Farmers_Market_Main_Screen">
 
     //placeholder button
     <Button

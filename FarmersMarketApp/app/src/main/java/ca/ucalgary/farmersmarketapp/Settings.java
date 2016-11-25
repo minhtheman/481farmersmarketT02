@@ -2,7 +2,6 @@ package ca.ucalgary.farmersmarketapp;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 /**
@@ -13,7 +12,7 @@ public class Settings extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.placeholder_screen);
+        setContentView(R.layout.activity_placeholder_screen);
     }
 
     public void backPressed(View view) {
