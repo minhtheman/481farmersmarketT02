@@ -18,10 +18,12 @@ import java.util.ArrayList;
 public class customInventoryAdapter extends BaseAdapter implements ListAdapter {
     private ArrayList<inventory_item> list = new ArrayList<inventory_item>();
     private Context context;
+    private inventory_item_screen inventoryItemScreen;
 
-    public customInventoryAdapter(ArrayList<inventory_item> list, Context context){
+    public customInventoryAdapter(inventory_item_screen inventoryItemScreen, ArrayList<inventory_item> list, Context context){
         this.list = list;
         this.context = context;
+        this.inventoryItemScreen = inventoryItemScreen;
     }
 
     @Override
@@ -56,12 +58,18 @@ public class customInventoryAdapter extends BaseAdapter implements ListAdapter {
         temperatureButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                //do something
-                list.get(position).addTempature(100);
-                notifyDataSetChanged();
+                //TODO
+                //basically make a new layout called "activity_popup_temperature_log.xml"
+                //have it so that we can add some text (numbers) and a submit button.
+                //the submit button should close the window.
+                //i can make the code to actually add the temperature log.
+                //good luck!
+                //(p.s. you may need to import some stuff and make variables, just do it like the customEmployeeAdapter.java)
+
+                //list.get(position).addTempature(100);
+                //notifyDataSetChanged();
         }
         });
-
 
         return view;
     }

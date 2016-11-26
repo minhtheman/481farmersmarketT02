@@ -32,7 +32,7 @@ public class inventory_item_screen extends AppCompatActivity {
         });
         generateRandomItems();
 
-        customInventoryAdapter adapter1 = new customInventoryAdapter(inventoryItemList, this);
+        customInventoryAdapter adapter1 = new customInventoryAdapter(this, inventoryItemList, this);
 
         ListView listView = (ListView) findViewById(R.id.inventoryList);
         listView.setAdapter(adapter1);

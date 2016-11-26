@@ -35,22 +35,25 @@ public class employees_screen extends AppCompatActivity {
                 if (favorite){
                     fab1.setImageResource(android.R.drawable.star_big_off);
                     favorite = false;
+                    Snackbar.make(view, "Favorite Removed", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
                 }
                 else {
                     fab1.setImageResource(android.R.drawable.star_big_on);
                     favorite = true;
+                    Snackbar.make(view, "Favorite Added", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
                 }
-                Snackbar.make(view, "Stuff here?", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
             }
         });
         generateEmployees();
 
-        customEmployeeAdapter adapter = new customEmployeeAdapter(employeeList, this);
+        customEmployeeAdapter adapter = new customEmployeeAdapter(this, employeeList, this);
 
         ListView listView = (ListView) findViewById(R.id.employeeList);
         listView.setAdapter(adapter);
     }
+
 
     public void generateEmployees (){
         employee e1 = new employee("John", "Doe");

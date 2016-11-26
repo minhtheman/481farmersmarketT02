@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@android:color/background_light"
+    android:weightSum="1">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="10dp"
+        android:background="@android:color/darker_gray">
+
+
+        <TextView
+            android:layout_width="264dp"
+            android:layout_height="wrap_content"
+            android:text="Edit Roles"
+            android:textSize="24sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@android:color/background_dark"/>
+
+        <GridLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="20dp"
+            android:rowCount="5"
+            android:columnCount="4">
+
+            //first option
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Manager"
+                android:layout_column="0"
+                android:layout_row="0"
+                android:textSize="18dp"/>
+            <Button
+                android:id="@+id/addManagerButton"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Add"
+                android:layout_column="2"
+                android:layout_row="0"/>
+
+            <Button
+                android:id="@+id/removeManagerButton"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Remove"
+                android:layout_column="3"
+                android:layout_row="0"/>
+
+
+            //Second option
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cashier"
+                android:layout_column="0"
+                android:layout_row="1"
+                android:textSize="18dp"/>
+            <Button
+                android:id="@+id/addCashierButton"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Add"
+                android:layout_column="2"
+                android:layout_row="1"/>
+
+            <Button
+                android:id="@+id/removeCashierButton"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Remove"
+                android:layout_column="3"
+                android:layout_row="1"/>
+
+            //Third option
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Inventory Counter"
+                android:layout_column="0"
+                android:layout_row="2"
+                android:textSize="18dp"/>
+            <Button
+                android:id="@+id/addInventoryCounterButton"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Add"
+                android:layout_column="2"
+                android:layout_row="2"/>
+
+            <Button
+                android:id="@+id/removeInventoryCounterButton"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Remove"
+                android:layout_column="3"
+                android:layout_row="2"/>
+
+            //fourth option
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cleaner"
+                android:layout_column="0"
+                android:layout_row="3"
+                android:textSize="18dp"/>
+            <Button
+                android:id="@+id/addCleanerButton"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Add"
+                android:layout_column="2"
+                android:layout_row="3"/>
+
+            <Button
+                android:id="@+id/removeCleanerButton"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Remove"
+                android:layout_column="3"
+                android:layout_row="3"/>
+
+        </GridLayout>
+
+        <Button
+            android:id="@+id/dismiss"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="----Done----"
+            android:layout_row="4"
+            android:layout_column="0"/>
+
+    </LinearLayout>
+</LinearLayout>
