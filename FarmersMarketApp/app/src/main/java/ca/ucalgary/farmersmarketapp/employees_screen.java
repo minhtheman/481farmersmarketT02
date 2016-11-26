@@ -6,8 +6,10 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -32,20 +34,48 @@ public class employees_screen extends AppCompatActivity {
         });
         generateEmployees();
 
-        ArrayList<String> stringList = new ArrayList<String>();
+        final ArrayList<String> stringList = new ArrayList<String>();
 
         for (int i = 0; i < employeeList.size(); i++){
             stringList.add(employeeList.get(i).getFirstName() + " " + employeeList.get(i).getLastName());
         }
 
-        ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.activity_listview, stringList);
+        ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.activity_inventory_listview, stringList);
+
+        //dont mind the spaghetti code here... Its ugly i know, and it vilates OO :(
+        ArrayAdapter adapter1 = new ArrayAdapter(this, android.R.layout.simple_list_item_2, android.R.id.text1, employeeList) {
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent) {
+                View view = super.getView(position, convertView, parent);
+                TextView text1 = (TextView) view.findViewById(android.R.id.text1);
+                TextView text2 = (TextView) view.findViewById(android.R.id.text2);
+
+                text1.setText(employeeList.get(position).getFirstName() + " " + employeeList.get(position).getLastName());
+                String rolesList = "";
+                boolean head = true;
+                for (int i = 0; i < employeeList.get(position).getRoles().size(); i++){
+                    if (head){
+                        rolesList = rolesList + " " + employeeList.get(position).getRoles().get(i);
+                        head = false;
+                    }
+                    else{
+                        rolesList = rolesList + "," +  " " + employeeList.get(position).getRoles().get(i);
+                    }
+                }
+                text2.setText(rolesList);
+
+                return view;
+            }
+        };
 
         ListView listView = (ListView) findViewById(R.id.employeeList);
-        listView.setAdapter(adapter);
+        listView.setAdapter(adapter1);
     }
 
     public void generateEmployees (){
         employee e1 = new employee("John", "Doe");
+        e1.addRole("Owner");
+        e1.addRole("Employee");
         employeeList.add(e1);
         employee e2 = new employee("Don", "Doe");
         employeeList.add(e2);
@@ -78,6 +108,7 @@ public class employees_screen extends AppCompatActivity {
         employee e16 = new employee("Employee", "Six");
         employeeList.add(e16);
         employee e17 = new employee("Employee", "Seven");
+        e17.addRole("Employee");
         employeeList.add(e17);
     }
 

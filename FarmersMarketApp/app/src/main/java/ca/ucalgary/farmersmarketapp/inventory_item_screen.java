@@ -38,10 +38,11 @@ public class inventory_item_screen extends AppCompatActivity {
             stringList.add(inventoryItemList.get(i).getName());
         }
 
-        ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.activity_listview, stringList);
+        ArrayAdapter adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, stringList);
+        customInventoryAdapter adapter1 = new customInventoryAdapter(inventoryItemList, this);
 
         ListView listView = (ListView) findViewById(R.id.inventoryList);
-        listView.setAdapter(adapter);
+        listView.setAdapter(adapter1);
     }
 
     public void generateRandomItems (){
