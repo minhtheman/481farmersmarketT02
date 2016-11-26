@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 public class Farmers_Market_Main_Screen extends AppCompatActivity {
+    public favoriteScreens favorites;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
