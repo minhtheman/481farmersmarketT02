@@ -15,8 +15,8 @@
     <Button
         android:text="Go Back"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="180dp"
         android:onClick="backPressed"
-        />
+        android:id="@+id/button" />
 
 </LinearLayout>
