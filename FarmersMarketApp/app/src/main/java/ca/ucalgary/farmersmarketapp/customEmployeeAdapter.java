@@ -18,18 +18,11 @@ import static android.R.id.list;
  */
 
 public class customEmployeeAdapter extends BaseAdapter implements ListAdapter {
-    private ArrayList<String> list = new ArrayList<String>();
-    private ArrayList<String> list2 = new ArrayList<String>();
+    private ArrayList<employee> list = new ArrayList<employee>();
     private Context context;
 
-    public customEmployeeAdapter (ArrayList<String> list, Context context){
+    public customEmployeeAdapter (ArrayList<employee> list, Context context){
         this.list = list;
-        this.context = context;
-    }
-
-    public customEmployeeAdapter (ArrayList<String> list, ArrayList<String> list2, Context context){
-        this.list = list;
-        this.list2 = list2;
         this.context = context;
     }
 
@@ -57,32 +50,41 @@ public class customEmployeeAdapter extends BaseAdapter implements ListAdapter {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             view = inflater.inflate(R.layout.activity_employee_listview, null);
         }
-        if (list2.size()>0){
-            TextView text1 = (TextView) view.findViewById(R.id.text1);
-            TextView text2 = (TextView) view.findViewById(R.id.text2);
 
-            text1.setText(list.get(position));
-            text2.setText(list2.get(position));
+        TextView text1 = (TextView) view.findViewById(R.id.text1);
+        TextView text2 = (TextView) view.findViewById(R.id.text2);
+        text1.setText(list.get(position).getFirstName() + " " + list.get(position).getLastName());
+
+        String rolesList = "";
+        boolean head = true;
+        for (int i = 0; i < list.get(position).getRoles().size(); i++){
+            if (head){
+                rolesList = rolesList + " " + list.get(position).getRoles().get(i);
+                head = false;
+            }
+            else{
+                rolesList = rolesList + "," +  " " + list.get(position).getRoles().get(i);
+            }
         }
-        else{
-            TextView text1 = (TextView) view.findViewById(R.id.text1);
-            TextView text2 = (TextView) view.findViewById(R.id.text2);
-            text1.setText(list.get(position));
-        }
+        text2.setText(rolesList);
 
         //Handle buttons and add onClickListeners
-        Button tempatureButton = (Button)view.findViewById(R.id.tempAddButton);
+        Button editRoleButton = (Button)view.findViewById(R.id.editRoleButton);
 
-        tempatureButton.setOnClickListener(new View.OnClickListener(){
+        editRoleButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 //do something
-                list.remove(position); //or some other task
+                list.get(position).addRole("Person"); //Implement role adding or removing
                 notifyDataSetChanged();
             }
         });
 
-
         return view;
+    }
+
+    //UGLY but it keeps state, defiantly not oo.........
+    public void updateEmployee(){
+
     }
 }

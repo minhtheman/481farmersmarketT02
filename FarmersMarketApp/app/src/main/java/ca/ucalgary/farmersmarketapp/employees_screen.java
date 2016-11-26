@@ -34,42 +34,10 @@ public class employees_screen extends AppCompatActivity {
         });
         generateEmployees();
 
-        final ArrayList<String> stringList = new ArrayList<String>();
-
-        for (int i = 0; i < employeeList.size(); i++){
-            stringList.add(employeeList.get(i).getFirstName() + " " + employeeList.get(i).getLastName());
-        }
-
-        ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.activity_inventory_listview, stringList);
-
-        //dont mind the spaghetti code here... Its ugly i know, and it vilates OO :(
-        ArrayAdapter adapter1 = new ArrayAdapter(this, android.R.layout.simple_list_item_2, android.R.id.text1, employeeList) {
-            @Override
-            public View getView(int position, View convertView, ViewGroup parent) {
-                View view = super.getView(position, convertView, parent);
-                TextView text1 = (TextView) view.findViewById(android.R.id.text1);
-                TextView text2 = (TextView) view.findViewById(android.R.id.text2);
-
-                text1.setText(employeeList.get(position).getFirstName() + " " + employeeList.get(position).getLastName());
-                String rolesList = "";
-                boolean head = true;
-                for (int i = 0; i < employeeList.get(position).getRoles().size(); i++){
-                    if (head){
-                        rolesList = rolesList + " " + employeeList.get(position).getRoles().get(i);
-                        head = false;
-                    }
-                    else{
-                        rolesList = rolesList + "," +  " " + employeeList.get(position).getRoles().get(i);
-                    }
-                }
-                text2.setText(rolesList);
-
-                return view;
-            }
-        };
+        customEmployeeAdapter adapter = new customEmployeeAdapter(employeeList, this);
 
         ListView listView = (ListView) findViewById(R.id.employeeList);
-        listView.setAdapter(adapter1);
+        listView.setAdapter(adapter);
     }
 
     public void generateEmployees (){

@@ -32,13 +32,6 @@ public class inventory_item_screen extends AppCompatActivity {
         });
         generateRandomItems();
 
-        ArrayList<String> stringList = new ArrayList<String>();
-
-        for (int i = 0; i < inventoryItemList.size(); i++){
-            stringList.add(inventoryItemList.get(i).getName());
-        }
-
-        ArrayAdapter adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, stringList);
         customInventoryAdapter adapter1 = new customInventoryAdapter(inventoryItemList, this);
 
         ListView listView = (ListView) findViewById(R.id.inventoryList);
