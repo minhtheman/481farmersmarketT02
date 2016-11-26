@@ -34,7 +34,10 @@
             android:name=".inventory_item_screen"
             android:label="@string/title_activity_inventory_screen"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".employees_screen"></activity>
+        <activity
+            android:name=".employees_screen"
+            android:label="@string/title_activity_employees_screen"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

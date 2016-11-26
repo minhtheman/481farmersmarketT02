@@ -32,10 +32,10 @@ public class inventory_item_screen extends AppCompatActivity {
         });
         generateRandomItems();
 
-        String[] stringList = {"Apple", "Orange", "Pineapple"};
+        ArrayList<String> stringList = new ArrayList<String>();
 
         for (int i = 0; i < inventoryItemList.size(); i++){
-            // stringList.add(inventoryItemList.get(i).getName());
+            stringList.add(inventoryItemList.get(i).getName());
         }
 
         ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.activity_listview, stringList);
@@ -69,8 +69,16 @@ public class inventory_item_screen extends AppCompatActivity {
         inventoryItemList.add(anItem11);
         inventory_item anItem12 = new inventory_item("Jam");
         inventoryItemList.add(anItem12);
-
-
+        inventory_item anItem13 = new inventory_item("Salt");
+        inventoryItemList.add(anItem13);
+        inventory_item anItem14 = new inventory_item("Peper");
+        inventoryItemList.add(anItem14);
+        inventory_item anItem15 = new inventory_item("Lolipop");
+        inventoryItemList.add(anItem15);
+        inventory_item anItem16 = new inventory_item("Flour");
+        inventoryItemList.add(anItem16);
+        inventory_item anItem17 = new inventory_item("Bottled Water");
+        inventoryItemList.add(anItem17);
     }
 
 }
