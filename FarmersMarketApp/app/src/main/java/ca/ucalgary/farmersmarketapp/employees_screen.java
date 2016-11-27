@@ -3,6 +3,7 @@ package ca.ucalgary.farmersmarketapp;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -16,6 +17,7 @@ import java.util.ArrayList;
 public class employees_screen extends AppCompatActivity {
 
     ArrayList <employee> employeeList = new ArrayList<employee>();
+    public boolean favorite = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,17 +30,30 @@ public class employees_screen extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                //@android:drawable/star_big_off
+                FloatingActionButton fab1 = (FloatingActionButton) findViewById(R.id.fab);
+                if (favorite){
+                    fab1.setImageResource(android.R.drawable.star_big_off);
+                    favorite = false;
+                    Snackbar.make(view, "Favorite Removed", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                }
+                else {
+                    fab1.setImageResource(android.R.drawable.star_big_on);
+                    favorite = true;
+                    Snackbar.make(view, "Favorite Added", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                }
             }
         });
         generateEmployees();
 
-        customEmployeeAdapter adapter = new customEmployeeAdapter(employeeList, this);
+        customEmployeeAdapter adapter = new customEmployeeAdapter(this, employeeList, this);
 
         ListView listView = (ListView) findViewById(R.id.employeeList);
         listView.setAdapter(adapter);
     }
+
 
     public void generateEmployees (){
         employee e1 = new employee("John", "Doe");

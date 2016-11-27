@@ -14,17 +14,9 @@
 
     <Button
         android:text="Go Back"
-        android:layout_width="241dp"
-        android:layout_height="227dp"
-        android:onClick="backPressed"
-        />
-
-    <Button
-        android:text="hit me to popup"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/popupButton"
-        android:layout_weight="0.03"
-        />
+        android:layout_height="180dp"
+        android:onClick="backPressed"
+        android:id="@+id/button" />
 
 </LinearLayout>
