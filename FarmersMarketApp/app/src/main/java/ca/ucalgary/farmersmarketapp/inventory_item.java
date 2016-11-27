@@ -3,6 +3,7 @@ package ca.ucalgary.farmersmarketapp;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -24,17 +25,18 @@ public class inventory_item {
     }
 
     private void initTemp(){
+        Random rng = new Random();
         Date initTime = new Date();
-        Date tempTime = new Date();
-        tempTime.setTime(initTime.getTime()- TimeUnit.MINUTES.toMillis(15));
-        tempatureLog.add(new Integer(15));
+        int numEntries = rng.nextInt(7)+3; // generate between 3-10 entries
+        Date tempTime = new Date(initTime.getTime() - TimeUnit.MINUTES.toMillis(5*numEntries));
+        tempatureLog.add(new Integer(10 + rng.nextInt(5)));
         dateLog.add(tempTime);
-        tempTime.setTime(initTime.getTime()-TimeUnit.MINUTES.toMillis(10));
-        tempatureLog.add(new Integer(-15));
-        dateLog.add(tempTime);
-        tempTime.setTime(initTime.getTime()-TimeUnit.MINUTES.toMillis(5));
-        tempatureLog.add(new Integer(25));
-        dateLog.add(tempTime);
+        for (int i=1; i< numEntries; i++) {
+            int newRand = rng.nextInt(10)-5; // random number between -5 to 5
+            tempTime = new Date(initTime.getTime() - TimeUnit.MINUTES.toMillis(5*(numEntries-i)));
+            tempatureLog.add(new Integer(tempatureLog.get(i-1).intValue() + newRand));
+            dateLog.add(tempTime);
+        }
     }
 
     public void addTempature(int temp){
@@ -45,7 +47,7 @@ public class inventory_item {
 
     public void addQuantity(int addValue){
         quantity = quantity + addValue;
-    }
+    } // adds to stock
 
     public String getName(){
         return name;

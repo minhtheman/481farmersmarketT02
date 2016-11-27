@@ -1,6 +1,9 @@
 package ca.ucalgary.farmersmarketapp;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.DashPathEffect;
+import android.graphics.Paint;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,10 +19,13 @@ import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.helper.DateAsXAxisLabelFormatter;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
+import com.jjoe64.graphview.series.PointsGraphSeries;
 
 import java.text.DateFormat;
 import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 import static android.content.Context.LAYOUT_INFLATER_SERVICE;
@@ -66,6 +72,9 @@ public class customInventoryAdapter extends BaseAdapter implements ListAdapter {
         TextView text1 = (TextView) view.findViewById(R.id.text1);
         text1.setText(list.get(position).getName());
 
+        TextView text1Val = (TextView) view.findViewById(R.id.text1Val);
+        text1Val.setText(String.valueOf(list.get(position).getQuantity()));
+
         final Button temperatureButton = (Button)view.findViewById(R.id.tempAddButton);
 
         temperatureButton.setOnClickListener(new View.OnClickListener(){
@@ -93,15 +102,32 @@ public class customInventoryAdapter extends BaseAdapter implements ListAdapter {
                     DataPointList[i] = tempInfo;
                 }
                 LineGraphSeries<DataPoint> tempLog = new LineGraphSeries<>(DataPointList);
+                tempLog.setDrawDataPoints(true);
+                tempLog.setDataPointsRadius(10);
+                Paint customPaint = new Paint();
+                customPaint.setStyle(Paint.Style.STROKE);
+                customPaint.setStrokeWidth(1);
+                customPaint.setPathEffect(new DashPathEffect(new float[]{2, 3}, 0));
+                tempLog.setCustomPaint(customPaint);
+
                 thisGraph.addSeries(tempLog);
 
-                thisGraph.getGridLabelRenderer().setLabelFormatter(new DateAsXAxisLabelFormatter(temperatureButton.getContext(), DateFormat.getTimeInstance(DateFormat.SHORT)));
-                thisGraph.getGridLabelRenderer().setNumHorizontalLabels(6);
-                thisGraph.getViewport().setMinX(list.get(position).dateAt(0).getTime());
-                thisGraph.getViewport().setMaxX(list.get(position).dateAt(0).getTime()+ TimeUnit.MINUTES.toMillis(25));
+
+                thisGraph.getGridLabelRenderer().setLabelFormatter(new DateAsXAxisLabelFormatter(temperatureButton.getContext(), new SimpleDateFormat("HH:mm")));
+                thisGraph.getGridLabelRenderer().setNumHorizontalLabels(4);
+                thisGraph.getGridLabelRenderer().setNumVerticalLabels(4);
+
+                thisGraph.getViewport().setYAxisBoundsManual(true);
+                thisGraph.getViewport().setMinY(0);
+                thisGraph.getViewport().setMaxY(15);
+
+                thisGraph.getViewport().setXAxisBoundsManual(true);
+                thisGraph.getViewport().setMinX(new Date().getTime() - TimeUnit.MINUTES.toMillis(30));
+                thisGraph.getViewport().setMaxX(new Date().getTime());
                 thisGraph.getGridLabelRenderer().setHumanRounding(false);
 
                 thisGraph.getViewport().setScrollable(true);
+                thisGraph.getViewport().setScrollableY(true);
 
                 final PopupWindow popupWindow = new PopupWindow(popupView, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 
