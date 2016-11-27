@@ -87,7 +87,130 @@ public class customEmployeeAdapter extends BaseAdapter implements ListAdapter {
                 final PopupWindow popupWindow = new PopupWindow(popupView, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 
                 Button btnDismiss = (Button)popupView.findViewById(R.id.dismiss);
+                Button addManager = (Button)popupView.findViewById(R.id.addManagerButton);
+                Button removeManager = (Button)popupView.findViewById(R.id.removeManagerButton);
+                Button addCashier = (Button)popupView.findViewById(R.id.addCashierButton);
+                Button removeCashier = (Button)popupView.findViewById(R.id.removeCashierButton);
+                Button addInventoryCounter = (Button)popupView.findViewById(R.id.addInventoryCounterButton);
+                Button removeInventoryCounter = (Button)popupView.findViewById(R.id.removeInventoryCounterButton);
+                Button addCleaner = (Button)popupView.findViewById(R.id.addCleanerButton);
+                Button removeCleaner = (Button)popupView.findViewById(R.id.removeCleanerButton);
+
+                Boolean addM = true;
+                Boolean addC = true;
+                Boolean addInv = true;
+                Boolean addCln = true;
+
+                //Check what roles the user has, and update booleans accordingly
+                for (int i = 0; i < list.get(position).getRoles().size(); i++){
+                    if (list.get(position).getRoles().get(i).equals("Manager")){
+                        addM = false;
+                    }
+                    else if (list.get(position).getRoles().get(i).equals("Cashier")){
+                        addC = false;
+                    }
+                    else if (list.get(position).getRoles().get(i).equals("Inventory Counter")){
+                        addInv = false;
+                    }
+                    else if (list.get(position).getRoles().get(i).equals("Cleaner")){
+                        addCln = false;
+                    }
+                }
+
+                //Set buttons according to If the role exists or not
+                if (addM = false){
+                    addManager.setEnabled(false);
+                    addManager.getBackground().setAlpha(0);
+                }
+                else {
+                    removeManager.setEnabled(false);
+                    removeManager.getBackground().setAlpha(0);
+                }
+
+                if (addC = false){
+                    addCashier.setEnabled(false);
+                    addCashier.getBackground().setAlpha(0);
+                }
+                else {
+                    removeCashier.setEnabled(false);
+                    removeCashier.getBackground().setAlpha(0);
+                }
+
+                if (addInv = false){
+                    addInventoryCounter.setEnabled(false);
+                    addInventoryCounter.getBackground().setAlpha(0);
+                }
+                else {
+                    removeInventoryCounter.setEnabled(false);
+                    removeInventoryCounter.getBackground().setAlpha(0);
+                }
+
+                if (addCln = false){
+                    addCleaner.setEnabled(false);
+                    addCleaner.getBackground().setAlpha(0);
+                }
+                else {
+                    removeCleaner.setEnabled(false);
+                    removeCleaner.getBackground().setAlpha(0);
+                }
+
                 btnDismiss.setOnClickListener(new Button.OnClickListener(){
+                    @Override
+                    public void onClick(View v) {
+                        //Close popUpWindow
+                        popupWindow.dismiss();
+                    }});
+
+                addManager.setOnClickListener(new Button.OnClickListener(){
+                    @Override
+                    public void onClick(View v) {
+                        // TODO Auto-generated method stub
+                        popupWindow.dismiss();
+                    }});
+
+                removeManager.setOnClickListener(new Button.OnClickListener(){
+                    @Override
+                    public void onClick(View v) {
+                        // TODO Auto-generated method stub
+                        popupWindow.dismiss();
+                    }});
+
+                addCashier.setOnClickListener(new Button.OnClickListener(){
+                    @Override
+                    public void onClick(View v) {
+                        // TODO Auto-generated method stub
+                        popupWindow.dismiss();
+                    }});
+
+                removeCashier.setOnClickListener(new Button.OnClickListener(){
+                    @Override
+                    public void onClick(View v) {
+                        // TODO Auto-generated method stub
+                        popupWindow.dismiss();
+                    }});
+
+                addInventoryCounter.setOnClickListener(new Button.OnClickListener(){
+                    @Override
+                    public void onClick(View v) {
+                        // TODO Auto-generated method stub
+                        popupWindow.dismiss();
+                    }});
+
+                removeInventoryCounter.setOnClickListener(new Button.OnClickListener(){
+                    @Override
+                    public void onClick(View v) {
+                        // TODO Auto-generated method stub
+                        popupWindow.dismiss();
+                    }});
+
+                addCleaner.setOnClickListener(new Button.OnClickListener(){
+                    @Override
+                    public void onClick(View v) {
+                        // TODO Auto-generated method stub
+                        popupWindow.dismiss();
+                    }});
+
+                removeCleaner.setOnClickListener(new Button.OnClickListener(){
                     @Override
                     public void onClick(View v) {
                         // TODO Auto-generated method stub
@@ -95,7 +218,6 @@ public class customEmployeeAdapter extends BaseAdapter implements ListAdapter {
                     }});
 
                 popupWindow.showAtLocation(editRoleButton, Gravity.CENTER, 0, 40);
-                //popupWindow.showAsDropDown(editRoleButton, 50, -30);
 
             }});
    //         }
