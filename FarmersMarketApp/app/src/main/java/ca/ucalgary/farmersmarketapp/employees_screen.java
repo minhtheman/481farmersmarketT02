@@ -16,7 +16,9 @@ import java.util.ArrayList;
 
 public class employees_screen extends AppCompatActivity {
 
-    ArrayList <employee> employeeList = new ArrayList<employee>();
+    //such oo, WOW
+    public static boolean generate = true;
+    public static ArrayList <employee> employeeList = new ArrayList<employee>();
     public boolean favorite = false;
 
     @Override
@@ -46,7 +48,12 @@ public class employees_screen extends AppCompatActivity {
                 }
             }
         });
-        generateEmployees();
+        //extreme oo here
+        if (generate){
+            generateEmployees();
+        }
+        generate = false;
+
 
         customEmployeeAdapter adapter = new customEmployeeAdapter(this, employeeList, this);
 
@@ -57,8 +64,7 @@ public class employees_screen extends AppCompatActivity {
 
     public void generateEmployees (){
         employee e1 = new employee("John", "Doe");
-        e1.addRole("Owner");
-        e1.addRole("Employee");
+        e1.addRole("Manager");
         employeeList.add(e1);
         employee e2 = new employee("Don", "Doe");
         employeeList.add(e2);
@@ -91,7 +97,7 @@ public class employees_screen extends AppCompatActivity {
         employee e16 = new employee("Employee", "Six");
         employeeList.add(e16);
         employee e17 = new employee("Employee", "Seven");
-        e17.addRole("Employee");
+        e17.addRole("Cleaner");
         employeeList.add(e17);
     }
 

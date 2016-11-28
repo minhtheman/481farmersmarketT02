@@ -13,7 +13,9 @@ import java.util.ArrayList;
 
 public class inventory_item_screen extends AppCompatActivity {
 
-    ArrayList<inventory_item> inventoryItemList = new ArrayList<inventory_item>();
+    //such oo, WOW
+    public static boolean generate = true;
+    public static ArrayList<inventory_item> inventoryItemList = new ArrayList<inventory_item>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,15 +24,19 @@ public class inventory_item_screen extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fabTemp);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+              Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
-        });
-        generateRandomItems();
+        });*/
+        if (generate){
+            generateRandomItems();
+        }
+        generate = false;
+
 
         customInventoryAdapter adapter1 = new customInventoryAdapter(this, inventoryItemList, this);
 

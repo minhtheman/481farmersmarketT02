@@ -33,10 +33,6 @@ public class Farmers_Market_Main_Screen extends AppCompatActivity {
         Intent myIntent = new Intent(view.getContext(), Products.class);
         startActivityForResult(myIntent, 0);
     }
-
-    public void settingsPressed(View view) {
-        Intent myIntent = new Intent(view.getContext(), Settings.class);
-        startActivityForResult(myIntent, 0);
-    }
+    
 
 }

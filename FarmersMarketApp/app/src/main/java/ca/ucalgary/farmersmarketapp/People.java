@@ -22,4 +22,19 @@ public class People extends AppCompatActivity {
         startActivityForResult(myIntent, 0);
     }
 
+    public void hoursPressed(View view) {
+        Intent myIntent = new Intent(view.getContext(), activity_hours_screen.class);
+        startActivityForResult(myIntent, 0);
+    }
+
+    public void editEmployeesPressed(View view) {
+        Intent myIntent = new Intent(view.getContext(), activity_hours_screen.class);
+        startActivityForResult(myIntent, 0);
+    }
+
+    public void salaryEmployeesPressed(View view) {
+        Intent myIntent = new Intent(view.getContext(), activity_hours_screen.class);
+        startActivityForResult(myIntent, 0);
+    }
+
 }

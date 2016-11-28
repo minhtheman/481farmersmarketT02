@@ -21,6 +21,10 @@ public class Products extends AppCompatActivity {
         startActivityForResult(myIntent, 0);
     }
 
+    public void addNewStockPressed(View view) {
+        Intent myIntent = new Intent(view.getContext(), Add_new_stock.class);
+        startActivityForResult(myIntent, 0);
+    }
 
 
 }
