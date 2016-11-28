@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:text="Temperature Log"
             android:textSize="24sp"
-            />
+            android:textAlignment="center" />
 
         <View
             android:layout_width="match_parent"
@@ -50,7 +50,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/tempDismiss"
                 android:text="Submit"
-                />
+                style="@android:style/Widget.Button" />
 
         </LinearLayout>
 

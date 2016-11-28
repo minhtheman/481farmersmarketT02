@@ -15,6 +15,7 @@ public class inventory_item {
     int quantity;
     ArrayList <Integer> tempatureLog;
     ArrayList <Date> dateLog;
+    Boolean trackTemperature;
 
     public inventory_item (String pName){
         name = pName;

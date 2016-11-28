@@ -13,7 +13,9 @@ import java.util.ArrayList;
 
 public class inventory_item_screen extends AppCompatActivity {
 
-    ArrayList<inventory_item> inventoryItemList = new ArrayList<inventory_item>();
+    //such oo, WOW
+    public static boolean generate = true;
+    public static ArrayList<inventory_item> inventoryItemList = new ArrayList<inventory_item>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +32,11 @@ public class inventory_item_screen extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });*/
-        generateRandomItems();
+        if (generate){
+            generateRandomItems();
+        }
+        generate = false;
+
 
         customInventoryAdapter adapter1 = new customInventoryAdapter(this, inventoryItemList, this);
 

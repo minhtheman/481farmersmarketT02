@@ -3,14 +3,14 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
-    android:background="@android:color/background_light"
+    android:background="@android:color/black"
     android:weightSum="1">
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_margin="10dp"
+        android:layout_margin="2dp"
         android:background="@android:color/darker_gray">
 
 
@@ -18,7 +18,8 @@
             android:layout_width="264dp"
             android:layout_height="wrap_content"
             android:text="Temperature Info"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            android:textAlignment="textEnd" />
 
         <View
             android:layout_width="match_parent"
@@ -54,7 +55,25 @@
                 android:layout_height="wrap_content"
                 android:text="Update"
                 android:layout_column="2"
-                android:layout_row="0"/>
+                android:layout_row="0"
+                style="@android:style/Widget.Button" />
+
+            <EditText
+                android:layout_width="107dp"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:id="@+id/temperatureReading"
+                android:layout_row="0"
+                android:layout_column="1"
+                android:textAlignment="center"
+                android:textStyle="normal|italic"
+                android:textAllCaps="false"
+                android:hint="0.0 oC"
+                android:imeActionLabel="DONE"
+                android:imeOptions="actionSend">
+                <requestFocus/>
+            </EditText>
+
 
         </GridLayout>
 
@@ -64,7 +83,8 @@
             android:layout_height="wrap_content"
             android:text="---- Close ----"
             android:layout_row="4"
-            android:layout_column="0"/>
+            android:layout_column="0"
+            style="@android:style/Widget.Button" />
 
     </LinearLayout>
 </LinearLayout>

@@ -28,15 +28,20 @@
             android:name=".Products"
             android:label="Products" />
         <activity
-            android:name=".Settings"
-            android:label="Settings" />
-        <activity
             android:name=".inventory_item_screen"
-            android:label="@string/title_activity_inventory_screen"
+            android:label="Inventory"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".employees_screen"
-            android:label="@string/title_activity_employees_screen"
+            android:label="Employees"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity_hours_screen"
+            android:label="Employees"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Add_new_stock"
+            android:label="@string/title_activity_add_new_stock"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
