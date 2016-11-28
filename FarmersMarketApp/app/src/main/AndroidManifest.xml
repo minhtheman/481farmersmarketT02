@@ -41,8 +41,9 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Add_new_stock"
-            android:label="@string/title_activity_add_new_stock"
+            android:label="Inventory"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+
     </application>
 
 </manifest>
